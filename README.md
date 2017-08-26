@@ -124,7 +124,7 @@ Then create your web handler:
   (println (.getUserId auth0-user)))
 
 (defn web-handler [req]
-  (let [callback-handler (auth0/create-callback-handler config :on-authenticated auth-callback)
+  (let [callback-handler (auth0/create-callback-handler config {:on-authenticated auth-callback})
         logout-callback-handler (auth0/create-logout-callback-handler config)
         logout-handler (auth0/create-logout-handler config)]
     (case (:uri req)
